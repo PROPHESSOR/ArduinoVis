@@ -1,7 +1,7 @@
 console.log("Starting ArduinoVis...");
 
 // const Arduino   = require("./Arduino");
-const Visualizer= require("./Visualizer");
+// const Visualizer= require("./Visualizer");
 const Streamer  = require("./Streamer");
 
 // Arduino.init(function(){
