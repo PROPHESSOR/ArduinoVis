@@ -5,21 +5,20 @@ const $$ = new $.Board({
 
 const Arduino = {
     isReady: false,
+
+    _led:null,
     _ready: () => {
-        Arduino.isReady = true
+        $$.pinMode(3, $.Pin.PWM);
+        Arduino.isReady = true;
     },
 
     visualize: function (val) {
-        return new $.Led(3)[_normalize(val) ? "on" : "off"]();
+        //if(!Arduino._led) Arduino._led = new $.Led(3);
+        //Arduino._led[this._normalize(val) ? "on" : "off"]();
+        //return new $.Led(13)[this._normalize(val) ? "on" : "off"]();
+        $$.analogWrite(3, Arduino._normalize(val));
     },
-    _normalize: x => Math.round(x)
-}
-
-$$.on("ready", Arduino._ready);
-
-module.exports = Arduino;
-
-// const $  = require("johnny-five");
+    _normalize: x => Math.min(Math.floor(x * 255), 255)
 // const $$ = new $.Board();
 
 // const Arduino = {
