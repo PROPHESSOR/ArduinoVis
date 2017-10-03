@@ -18,7 +18,8 @@ const Arduino = {
         //return new $.Led(13)[this._normalize(val) ? "on" : "off"]();
         $$.analogWrite(3, Arduino._normalize(val));
     },
-    _normalize: x => Math.min(Math.floor(x * 255), 255)
+    _normalize: x => x//Math.min(Math.floor(x * 255), 255)
+}
 // const $$ = new $.Board();
 
 // const Arduino = {
@@ -36,7 +37,7 @@ const Arduino = {
 //     }
 // }
 
-// $$.on("ready", Arduino._ready);
+$$.on("ready", Arduino._ready);
 
 
-// module.exports = Arduino;
+module.exports = Arduino;
